@@ -60,7 +60,7 @@ main(int argc, char * argv[])
   rescaler->SetOutputMaximum(255);
   rescaler->Update();
 
-  WriteImage(rescaler->GetOutput(), "output.png");
+  WriteImage(rescaler->GetOutput(), "Output.png");
 
   return EXIT_SUCCESS;
 }
