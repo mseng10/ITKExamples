@@ -37,13 +37,12 @@ CreateImage(ImageType * const image);
 int
 main(int argc, char * argv[])
 {
-  ImageType::Pointer image;
+  ImageType::Pointer image = ImageType::New();
   unsigned int       radius = 5;
   std::string        outputFilename = "Output.png";
 
   if (argc == 1)
   {
-    image = ImageType::New();
     CreateImage(image);
   }
   else if (argc < 4)
@@ -61,22 +60,29 @@ main(int argc, char * argv[])
   }
 
   std::cout << "Radius: " << radius << std::endl;
-  using StructuringElementType = itk::BinaryBallStructuringElement<ImageType::PixelType, ImageType::ImageDimension>;
-  StructuringElementType structuringElement;
-  structuringElement.SetRadius(radius);
-  structuringElement.CreateStructuringElement();
+  using KernelType = itk::BinaryBallStructuringElement<unsigned char, 2>;
+  KernelType           ball;
+  KernelType::SizeType ballSize;
+  ballSize.Fill(40);
+  ball.SetRadius(ballSize);
+  ball.CreateStructuringElement();
 
   using BinaryMorphologicalClosingImageFilterType =
-    itk::BinaryMorphologicalClosingImageFilter<ImageType, ImageType, StructuringElementType>;
+    itk::BinaryMorphologicalClosingImageFilter<ImageType, ImageType, KernelType>;
   BinaryMorphologicalClosingImageFilterType::Pointer closingFilter = BinaryMorphologicalClosingImageFilterType::New();
   closingFilter->SetInput(image);
-  closingFilter->SetKernel(structuringElement);
+  closingFilter->SetKernel(ball);
   closingFilter->Update();
 
-  using SubtractType = itk::SubtractImageFilter<ImageType>;
-  SubtractType::Pointer diff = SubtractType::New();
-  diff->SetInput1(closingFilter->GetOutput());
-  diff->SetInput2(image);
+  closingFilter->SafeBorderOff();
+  closingFilter->SafeBorderOn();
+  closingFilter->SetSafeBorder(1);
+
+
+//  using SubtractType = itk::SubtractImageFilter<ImageType>;
+//  SubtractType::Pointer diff = SubtractType::New();
+//  diff->SetInput1(closingFilter->GetOutput());
+//  diff->SetInput2(image);
 
 #ifdef ENABLE_QUICKVIEW
   QuickView         viewer;
