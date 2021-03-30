@@ -37,32 +37,21 @@ CreateImage(TImage * const image);
 int
 main(int argc, char * argv[])
 {
-  //   std::cerr << "Usage: " << std::endl;
-  //   std::cerr << argv[0] << " InputImageFile OutputImageFile [iteration]" << std::endl;
-
   using ImageType = itk::Image<unsigned char, 2>;
   ImageType::Pointer image;
   std::string        outputFilename = "Output.png";
   unsigned int       iteration = 1;
 
-  if (argc == 1)
-  {
-    image = ImageType::New();
-    CreateImage(image.GetPointer());
-  }
-  else if (argc < 4)
-  {
-    using ReaderType = itk::ImageFileReader<ImageType>;
-    ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName(argv[1]);
-    reader->Update();
-    image = reader->GetOutput();
+  using ReaderType = itk::ImageFileReader<ImageType>;
+  ReaderType::Pointer reader = ReaderType::New();
+  reader->SetFileName(argv[1]);
+  reader->Update();
+  image = reader->GetOutput();
 
-    std::stringstream ssIteration(argv[2]);
-    ssIteration >> iteration;
+  std::stringstream ssIteration(argv[2]);
+  ssIteration >> iteration;
 
-    outputFilename = argv[3];
-  }
+  outputFilename = argv[3];
 
   std::cout << "Iterations: " << iteration << std::endl;
 
@@ -70,7 +59,6 @@ main(int argc, char * argv[])
   BinaryPruningImageFilterType::Pointer pruneFilter = BinaryPruningImageFilterType::New();
   pruneFilter->SetInput(image);
   pruneFilter->SetIteration(iteration);
-  pruneFilter->GetOutput();
 
 #ifdef ENABLE_QUICKVIEW
   QuickView viewer;

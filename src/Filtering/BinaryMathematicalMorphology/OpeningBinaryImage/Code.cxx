@@ -41,36 +41,31 @@ main(int argc, char * argv[])
   unsigned int       radius = 5;
   std::string        outputFilename = "Output.png";
 
-  if (argc == 1)
-  {
-    image = ImageType::New();
-    CreateImage(image);
-  }
-  else if (argc < 4)
-  {
-    using ReaderType = itk::ImageFileReader<ImageType>;
-    ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName(argv[1]);
-    reader->Update();
 
-    std::stringstream ss(argv[2]);
-    ss >> radius;
+  using ReaderType = itk::ImageFileReader<ImageType>;
+  ReaderType::Pointer reader = ReaderType::New();
+  reader->SetFileName(argv[1]);
+  reader->Update();
 
-    image = reader->GetOutput();
-    outputFilename = argv[3];
-  }
+  std::stringstream ss(argv[2]);
+  ss >> radius;
+
+  image = reader->GetOutput();
+  outputFilename = argv[3];
 
   std::cout << "Radius: " << radius << std::endl;
-  using StructuringElementType = itk::BinaryBallStructuringElement<ImageType::PixelType, ImageType::ImageDimension>;
-  StructuringElementType structuringElement;
-  structuringElement.SetRadius(radius);
-  structuringElement.CreateStructuringElement();
+  using KernelType = itk::BinaryBallStructuringElement<unsigned char, 2>;
+  KernelType           ball;
+  KernelType::SizeType ballSize;
+  ballSize.Fill(40);
+  ball.SetRadius(ballSize);
+  ball.CreateStructuringElement();
 
   using BinaryMorphologicalOpeningImageFilterType =
-    itk::BinaryMorphologicalOpeningImageFilter<ImageType, ImageType, StructuringElementType>;
+    itk::BinaryMorphologicalOpeningImageFilter<ImageType, ImageType, KernelType>;
   BinaryMorphologicalOpeningImageFilterType::Pointer openingFilter = BinaryMorphologicalOpeningImageFilterType::New();
   openingFilter->SetInput(image);
-  openingFilter->SetKernel(structuringElement);
+  openingFilter->SetKernel(ball);
   openingFilter->Update();
 
   using SubtractType = itk::SubtractImageFilter<ImageType>;

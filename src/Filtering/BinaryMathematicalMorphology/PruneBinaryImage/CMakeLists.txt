@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(PruneBinaryImage)
 
+set( input_image ${CMAKE_CURRENT_BINARY_DIR}/Yinyang.png )
+set( output_image Output.png )
+set( test_options 1 )
+
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
 
@@ -42,4 +46,7 @@ install(FILES Code.cxx CMakeLists.txt
 
 enable_testing()
 add_test(NAME PruneBinaryImageTest
-  COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/PruneBinaryImage)
+  COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/PruneBinaryImage
+        ${input_image}
+        ${test_options}
+        ${output_image})

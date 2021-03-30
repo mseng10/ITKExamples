@@ -41,23 +41,16 @@ main(int argc, char * argv[])
   unsigned int       radius = 5;
   std::string        outputFilename = "Output.png";
 
-  if (argc == 1)
-  {
-    CreateImage(image);
-  }
-  else if (argc < 4)
-  {
-    using ReaderType = itk::ImageFileReader<ImageType>;
-    ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName(argv[1]);
-    reader->Update();
-    image = reader->GetOutput();
+  using ReaderType = itk::ImageFileReader<ImageType>;
+  ReaderType::Pointer reader = ReaderType::New();
+  reader->SetFileName(argv[1]);
+  reader->Update();
+  image = reader->GetOutput();
 
-    std::stringstream ss(argv[2]);
-    ss >> radius;
+  std::stringstream ss(argv[2]);
+  ss >> radius;
 
-    outputFilename = argv[3];
-  }
+  outputFilename = argv[3];
 
   std::cout << "Radius: " << radius << std::endl;
   using KernelType = itk::BinaryBallStructuringElement<unsigned char, 2>;

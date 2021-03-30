@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(ClosingBinaryImage)
 
-set( input_image ${CMAKE_CURRENT_BINARY_DIR}/2th_cthead1.png )
+set( input_image ${CMAKE_CURRENT_BINARY_DIR}/Yinyang.png )
 set( output_image Output.png )
 set( test_options 3 )
 
@@ -46,5 +46,9 @@ install(FILES Code.cxx CMakeLists.txt
 
 enable_testing()
 add_test(NAME ClosingBinaryImageTest
-  COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ClosingBinaryImage)
+  COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ClosingBinaryImage
+        ${input_image}
+        ${test_options}
+        ${output_image}
+        )
 
