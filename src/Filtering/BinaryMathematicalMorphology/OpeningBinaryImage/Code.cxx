@@ -37,40 +37,43 @@ CreateImage(ImageType * const image);
 int
 main(int argc, char * argv[])
 {
-  ImageType::Pointer image;
-  unsigned int       radius = 5;
-  std::string        outputFilename = "Output.png";
+  if (argc < 4)
+  {
+    std::cerr << "Usage: " << std::endl;
+    std::cerr << argv[0] << " <inputImage> <outputImage> <radius>";
+    std::cerr << std::endl;
+    return EXIT_FAILURE;
+  }
 
+  const char *       inputImage = argv[1];
+  const char *       outputImage = argv[2];
+  const unsigned int radiusValue = std::stoi(argv[3]);
 
+  using PixelType = unsigned char;
+  constexpr unsigned int Dimension = 2;
+
+  using ImageType = itk::Image<PixelType , Dimension>;
   using ReaderType = itk::ImageFileReader<ImageType>;
   ReaderType::Pointer reader = ReaderType::New();
-  reader->SetFileName(argv[1]);
+  reader->SetFileName(inputImage);
   reader->Update();
 
-  std::stringstream ss(argv[2]);
-  ss >> radius;
-
-  image = reader->GetOutput();
-  outputFilename = argv[3];
-
-  std::cout << "Radius: " << radius << std::endl;
-  using KernelType = itk::BinaryBallStructuringElement<unsigned char, 2>;
-  KernelType           ball;
-  KernelType::SizeType ballSize;
-  ballSize.Fill(40);
-  ball.SetRadius(ballSize);
-  ball.CreateStructuringElement();
+  std::cout << "Radius: " << radiusValue << std::endl;
+  using StructuringElementType = itk::BinaryBallStructuringElement<unsigned char, 2>;
+  StructuringElementType           structuringElement;
+  structuringElement.SetRadius(radiusValue);
+  structuringElement.CreateStructuringElement();
 
   using BinaryMorphologicalOpeningImageFilterType =
-    itk::BinaryMorphologicalOpeningImageFilter<ImageType, ImageType, KernelType>;
+    itk::BinaryMorphologicalOpeningImageFilter<ImageType, ImageType, StructuringElementType>;
   BinaryMorphologicalOpeningImageFilterType::Pointer openingFilter = BinaryMorphologicalOpeningImageFilterType::New();
-  openingFilter->SetInput(image);
-  openingFilter->SetKernel(ball);
+  openingFilter->SetInput(reader->GetOutput());
+  openingFilter->SetKernel(structuringElement);
   openingFilter->Update();
 
   using SubtractType = itk::SubtractImageFilter<ImageType>;
   SubtractType::Pointer diff = SubtractType::New();
-  diff->SetInput1(image);
+  diff->SetInput1(reader->GetOutput());
   diff->SetInput2(openingFilter->GetOutput());
 
 #ifdef ENABLE_QUICKVIEW
@@ -89,39 +92,7 @@ main(int argc, char * argv[])
   viewer.Visualize();
 #endif
 
-  itk::WriteImage(openingFilter->GetOutput(), outputFilename);
+  itk::WriteImage(openingFilter->GetOutput(), outputImage);
 
   return EXIT_SUCCESS;
-}
-
-
-void
-CreateImage(ImageType * const image)
-{
-  // Create an image with 2 connected components
-  itk::Index<2> corner = { { 0, 0 } };
-
-  itk::Size<2> size;
-  unsigned int NumRows = 200;
-  unsigned int NumCols = 300;
-  size[0] = NumRows;
-  size[1] = NumCols;
-
-  itk::ImageRegion<2> region(corner, size);
-
-  image->SetRegions(region);
-  image->Allocate();
-
-  // Make a square
-  for (unsigned int r = 40; r < 100; r++)
-  {
-    for (unsigned int c = 40; c < 100; c++)
-    {
-      itk::Index<2> pixelIndex;
-      pixelIndex[0] = r;
-      pixelIndex[1] = c;
-
-      image->SetPixel(pixelIndex, 50);
-    }
-  }
 }

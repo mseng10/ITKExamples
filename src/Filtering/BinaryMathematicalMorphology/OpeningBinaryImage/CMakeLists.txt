@@ -4,7 +4,7 @@ project(OpeningBinaryImage)
 
 set( input_image ${CMAKE_CURRENT_BINARY_DIR}/Yinyang.png )
 set( output_image Output.png )
-set( test_options 3 )
+set( radius 3 )
 
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
@@ -49,5 +49,6 @@ enable_testing()
 add_test(NAME OpeningBinaryImageTest
   COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/OpeningBinaryImage
         ${input_image}
-        ${test_options}
-        ${output_image})
+        ${output_image}
+        ${radius}
+  )

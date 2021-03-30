@@ -4,7 +4,7 @@ project(PruneBinaryImage)
 
 set( input_image ${CMAKE_CURRENT_BINARY_DIR}/Yinyang.png )
 set( output_image Output.png )
-set( test_options 1 )
+set( iterations 1 )
 
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
@@ -48,5 +48,6 @@ enable_testing()
 add_test(NAME PruneBinaryImageTest
   COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/PruneBinaryImage
         ${input_image}
-        ${test_options}
-        ${output_image})
+        ${output_image}
+        ${iterations}
+  )

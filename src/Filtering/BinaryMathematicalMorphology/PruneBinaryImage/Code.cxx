@@ -25,11 +25,6 @@
 #  include "QuickView.h"
 #endif
 
-namespace
-{
-using ImageType = itk::Image<unsigned char, 2>;
-}
-
 template <typename TImage>
 void
 CreateImage(TImage * const image);
@@ -37,28 +32,33 @@ CreateImage(TImage * const image);
 int
 main(int argc, char * argv[])
 {
-  using ImageType = itk::Image<unsigned char, 2>;
-  ImageType::Pointer image;
-  std::string        outputFilename = "Output.png";
-  unsigned int       iteration = 1;
+  if (argc < 4)
+  {
+    std::cerr << "Usage: " << std::endl;
+    std::cerr << argv[0] << " <inputImage> <outputImage> <iterations>";
+    std::cerr << std::endl;
+    return EXIT_FAILURE;
+  }
 
+  const char *       inputImage = argv[1];
+  const char *       outputImage = argv[2];
+  const unsigned int iterationValue = std::stoi(argv[3]);
+
+  using PixelType = unsigned char;
+  constexpr unsigned int Dimension = 2;
+
+  using ImageType = itk::Image<PixelType , Dimension>;
   using ReaderType = itk::ImageFileReader<ImageType>;
   ReaderType::Pointer reader = ReaderType::New();
-  reader->SetFileName(argv[1]);
+  reader->SetFileName(inputImage);
   reader->Update();
-  image = reader->GetOutput();
 
-  std::stringstream ssIteration(argv[2]);
-  ssIteration >> iteration;
-
-  outputFilename = argv[3];
-
-  std::cout << "Iterations: " << iteration << std::endl;
+  std::cout << "Iterations: " << iterationValue << std::endl;
 
   using BinaryPruningImageFilterType = itk::BinaryPruningImageFilter<ImageType, ImageType>;
   BinaryPruningImageFilterType::Pointer pruneFilter = BinaryPruningImageFilterType::New();
-  pruneFilter->SetInput(image);
-  pruneFilter->SetIteration(iteration);
+  pruneFilter->SetInput(reader->GetOutput());
+  pruneFilter->SetIteration(iterationValue);
 
 #ifdef ENABLE_QUICKVIEW
   QuickView viewer;
@@ -67,38 +67,7 @@ main(int argc, char * argv[])
   viewer.Visualize();
 #endif
 
-  itk::WriteImage(pruneFilter->GetOutput(), outputFilename);
+  itk::WriteImage(pruneFilter->GetOutput(), outputImage);
 
   return EXIT_SUCCESS;
-}
-
-template <typename TImage>
-void
-CreateImage(TImage * const image)
-{
-  // This function creates a 2D image consisting of a black background,
-  // a large square of a non-zero pixel value, and a single "erroneous" pixel
-  // near the square.
-  typename TImage::IndexType corner = { { 0, 0 } };
-
-  typename TImage::SizeType size = { { 200, 200 } };
-
-  typename TImage::RegionType region(corner, size);
-
-  image->SetRegions(region);
-  image->Allocate();
-
-  // Make a square
-  for (int r = 40; r < 100; r++)
-  {
-    for (int c = 40; c < 100; c++)
-    {
-      typename TImage::IndexType pixelIndex = { { r, c } };
-      image->SetPixel(pixelIndex, 50);
-    }
-  }
-
-  typename TImage::IndexType pixelIndex = { { 102, 102 } };
-
-  image->SetPixel(pixelIndex, 50);
 }
