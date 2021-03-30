@@ -12,7 +12,7 @@ Apply a linear intensity transform from a specified input range to a specified o
 
 Results
 -------
-.. figure:: IntensityWindowing.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

@@ -1,6 +1,6 @@
 add_example(SegmentPixelsWithSimilarStats)
 compare_to_baseline(EXAMPLE_NAME SegmentPixelsWithSimilarStats
-  BASELINE_PREFIX SegmentPixelsWithSimilarStats
+  BASELINE_PREFIX OutputBaseline
   )
 
 # TODO: incomplete example needs code fixes

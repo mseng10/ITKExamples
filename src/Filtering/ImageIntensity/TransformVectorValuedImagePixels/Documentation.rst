@@ -18,7 +18,7 @@ Results
 
   Input image.
 
-.. figure:: TransformVectorValuedImagePixels.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

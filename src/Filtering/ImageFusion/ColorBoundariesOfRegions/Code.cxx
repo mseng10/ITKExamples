@@ -56,7 +56,7 @@ main(int, char *[])
 
   using WriterType = itk::ImageFileWriter<RGBImageType>;
   WriterType::Pointer writer = WriterType::New();
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(labelMapContourOverlayImageFilter->GetOutput());
   writer->Update();
 

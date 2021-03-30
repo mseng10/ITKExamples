@@ -16,12 +16,12 @@ add_example(ComputeMeanSquareBetweenTwoImages)
 
 add_example(RegisterImageToAnotherUsingLandmarks)
 compare_to_baseline(EXAMPLE_NAME RegisterImageToAnotherUsingLandmarks
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(GlobalRegistrationOfTwoImages)
 compare_to_baseline(EXAMPLE_NAME GlobalRegistrationOfTwoImages
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(MutualInformation)

@@ -160,12 +160,11 @@ PerformSegmentation(FloatImageType::Pointer image, const float threshold, const 
   colormapImageFilter->SetColormap(itk::ScalarToRGBColormapImageFilterEnums::RGBColormapFilter::Jet);
   colormapImageFilter->Update();
 
-  std::stringstream ss;
-  ss << "output_" << threshold << "_" << level << ".png";
+  std::string ss = "Output.png";
 
   using FileWriterType = itk::ImageFileWriter<RGBImageType>;
   FileWriterType::Pointer writer = FileWriterType::New();
-  writer->SetFileName(ss.str());
+  writer->SetFileName(ss);
   writer->SetInput(colormapImageFilter->GetOutput());
   writer->Update();
 }

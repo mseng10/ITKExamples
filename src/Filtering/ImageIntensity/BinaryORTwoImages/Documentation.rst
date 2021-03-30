@@ -25,7 +25,7 @@ Results
 
   input2.png
 
-.. figure:: BinaryORTwoImages.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

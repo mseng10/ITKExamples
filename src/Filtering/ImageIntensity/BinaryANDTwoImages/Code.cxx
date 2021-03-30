@@ -53,7 +53,7 @@ main(int, char *[])
   andFilter->SetInput(1, image2);
   andFilter->Update();
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(andFilter->GetOutput());
   writer->Update();
 

@@ -1,32 +1,32 @@
 add_example( ComputeGradientMagnitude )
 compare_to_baseline( EXAMPLE_NAME ComputeGradientMagnitude
-  BASELINE_PREFIX ComputeGradientMagnitudeTestOutputBaseline
+  BASELINE_PREFIX OutputBaseline
 )
 
 add_example( ComputeGradientMagnitudeRecursiveGaussian )
 compare_to_baseline( EXAMPLE_NAME ComputeGradientMagnitudeRecursiveGaussian
-  BASELINE_PREFIX ComputeGradientMagnitudeRecursiveGaussianTestOutputBaseline
+  BASELINE_PREFIX OutputBaseline
 )
 
 add_example( ApplyGradientRecursiveGaussian )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussian
   TEST_NAME ApplyGradientRecursiveGaussianTestBaselineComparisonX
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianTestOutputBaselineX
+  BASELINE_PREFIX OutputBaselineX
   DEPENDS ApplyGradientRecursiveGaussianTest
   TEST_IMAGE OutputX.png
 )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussian
   TEST_NAME ApplyGradientRecursiveGaussianTestBaselineComparisonY
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianTestOutputBaselineY
+  BASELINE_PREFIX OutputBaselineY
   DEPENDS ApplyGradientRecursiveGaussianTest
   TEST_IMAGE OutputY.png
 )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussian
   TEST_NAME ApplyGradientRecursiveGaussianTestBaselineComparisonMagnitude
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianTestOutputBaselineMagnitude
+  BASELINE_PREFIX OutputBaselineMagnitude
   DEPENDS ApplyGradientRecursiveGaussianTest
   TEST_IMAGE OutputMagnitude.png
 )
@@ -35,28 +35,28 @@ add_example( ApplyGradientRecursiveGaussianWithVectorInput )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussianWithVectorInput
   TEST_NAME ApplyGradientRecursiveGaussianWithVectorInputTestBaselineComparison1X
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianWithVectorInputTestOutputBaseline1X
+  BASELINE_PREFIX OutputBaseline1X
   DEPENDS ApplyGradientRecursiveGaussianWithVectorInputTest
   TEST_IMAGE Output1X.png
 )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussianWithVectorInput
   TEST_NAME ApplyGradientRecursiveGaussianWithVectorInputTestBaselineComparison1Y
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianWithVectorInputTestOutputBaseline1Y
+  BASELINE_PREFIX OutputBaseline1Y
   DEPENDS ApplyGradientRecursiveGaussianWithVectorInputTest
   TEST_IMAGE Output1Y.png
 )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussianWithVectorInput
   TEST_NAME ApplyGradientRecursiveGaussianWithVectorInputTestBaselineComparison2X
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianWithVectorInputTestOutputBaseline2X
+  BASELINE_PREFIX OutputBaseline2X
   DEPENDS ApplyGradientRecursiveGaussianWithVectorInputTest
   TEST_IMAGE Output2X.png
 )
 compare_to_baseline(
   EXAMPLE_NAME ApplyGradientRecursiveGaussianWithVectorInput
   TEST_NAME ApplyGradientRecursiveGaussianWithVectorInputTestBaselineComparison2Y
-  BASELINE_PREFIX ApplyGradientRecursiveGaussianWithVectorInputTestOutputBaseline2Y
+  BASELINE_PREFIX OutputBaseline2Y
   DEPENDS ApplyGradientRecursiveGaussianWithVectorInputTest
   TEST_IMAGE Output2Y.png
 )

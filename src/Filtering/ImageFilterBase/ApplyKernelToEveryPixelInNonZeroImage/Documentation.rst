@@ -26,7 +26,7 @@ Results
 
   mask.png
 
-.. figure:: output.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

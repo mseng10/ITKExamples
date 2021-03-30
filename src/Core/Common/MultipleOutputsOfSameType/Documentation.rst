@@ -12,13 +12,13 @@ Write a filter with multiple outputs of the same type.
 
 Results
 -------
-.. figure:: TestOutput1.jpg
+.. figure:: OutputBaseline1.jpg
   :scale: 70%
   :alt: TestOutput1.jpg
 
   TestOuput1.jpg
 
-.. figure:: TestOutput2.jpg
+.. figure:: OutputBaseline2.jpg
   :scale: 70%
   :alt: TestOutput2.jpg
 

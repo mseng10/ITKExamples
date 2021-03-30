@@ -36,7 +36,7 @@ main(int, char *[])
 
   using WriterType = itk::ImageFileWriter<ImageType>;
   WriterType::Pointer writer = WriterType::New();
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(squareImageFilter->GetOutput());
   writer->Update();
 

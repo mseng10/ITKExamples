@@ -1,8 +1,5 @@
 Contour Spatial Object
 ======================
-.. note::
-   **Wish List**
-   Still needs additional work to finish proper creation of example.
 .. index::
    single: ContourSpatialObject
 
@@ -14,7 +11,11 @@ Contour spatial object.
 
 Results
 -------
-**Results Coming Soon!**
+.. figure:: OutputBaseline.png
+  :scale: 70%
+  :alt: contour.png
+
+  contour.png
 
 Code
 ----

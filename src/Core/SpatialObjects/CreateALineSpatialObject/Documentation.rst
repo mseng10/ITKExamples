@@ -13,7 +13,7 @@ Specify a piecewise-linear object by specifying points along the line.
 
 Results
 -------
-.. figure:: line.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: line.png
 

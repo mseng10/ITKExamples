@@ -13,7 +13,7 @@ Create ellipse.
 
 Results
 -------
-.. figure:: EllipseOutput.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: Output.png
 

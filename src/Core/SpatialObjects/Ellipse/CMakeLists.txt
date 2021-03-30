@@ -23,4 +23,4 @@ install(FILES Code.cxx CMakeLists.txt
 enable_testing()
 add_test(NAME EllipseTest
   COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/Ellipse
-    output.png)
+    Output.png)

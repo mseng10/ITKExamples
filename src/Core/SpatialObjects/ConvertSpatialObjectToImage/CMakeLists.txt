@@ -23,4 +23,4 @@ install(FILES Code.cxx CMakeLists.txt
 enable_testing()
 add_test(NAME ConvertSpatialObjectToImageTest
   COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ConvertSpatialObjectToImage
-    output.png)
+    Output.png)

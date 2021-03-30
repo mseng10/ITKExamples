@@ -44,7 +44,7 @@ main(int, char *[])
 
   using FileWriterType = itk::ImageFileWriter<ImageType>;
   FileWriterType::Pointer writer = FileWriterType::New();
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(maskNegatedImageFilter->GetOutput());
   writer->Update();
 

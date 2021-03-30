@@ -18,6 +18,7 @@
 #include "itkImage.h"
 #include "itkImageFileReader.h"
 #include "itkConfidenceConnectedImageFilter.h"
+#include "itkImageFileWriter.h"
 
 #include "itksys/SystemTools.hxx"
 #include <sstream>
@@ -68,6 +69,8 @@ main(int argc, char * argv[])
 
   viewer.Visualize();
 #endif
+
+  itk::WriteImage(confidenceConnectedFilter->GetOutput(), "Output.png");
 
   return EXIT_SUCCESS;
 }

@@ -41,7 +41,7 @@ main(int, char *[])
   writer->SetInput(image);
   writer->Update();
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(regionalMinimaImageFilter->GetOutput());
   writer->Update();
 

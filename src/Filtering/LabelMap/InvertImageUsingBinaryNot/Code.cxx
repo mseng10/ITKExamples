@@ -45,7 +45,7 @@ main(int, char *[])
   binaryNotFilter->SetInput(image);
   binaryNotFilter->Update();
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(binaryNotFilter->GetOutput());
   writer->Update();
 #endif

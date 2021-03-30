@@ -12,7 +12,7 @@ Square every pixel in an image.
 
 Results
 -------
-.. figure:: SquareEveryPixel.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

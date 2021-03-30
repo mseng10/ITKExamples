@@ -20,6 +20,7 @@
 #include "itkLabelToRGBImageFilter.h"
 #include "itkRelabelComponentImageFilter.h"
 #include "itkLabelStatisticsImageFilter.h"
+#include "itkImageFileWriter.h"
 
 #include "itkScalarConnectedComponentImageFilter.h"
 
@@ -110,6 +111,8 @@ main(int argc, char * argv[])
 
   viewer.Visualize();
 #endif
+
+  itk::WriteImage(rgbFilter->GetOutput(), "Output.png");
 
   return EXIT_SUCCESS;
 }

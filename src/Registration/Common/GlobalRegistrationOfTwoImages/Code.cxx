@@ -213,7 +213,7 @@ main(int, char *[])
 
   WriterType::Pointer     writer = WriterType::New();
   CastFilterType::Pointer caster = CastFilterType::New();
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
 
   caster->SetInput(resampler->GetOutput());
   writer->SetInput(caster->GetOutput());

@@ -12,7 +12,7 @@ Segment pixels with similar statistics using connectivity.
 
 Results
 -------
-.. figure:: SegmentPixelsWithSimilarStats.png
+.. figure:: SegmentPixelsWithSimilarStatsQuickView.png
   :scale: 70%
   :alt: VTK Window
 

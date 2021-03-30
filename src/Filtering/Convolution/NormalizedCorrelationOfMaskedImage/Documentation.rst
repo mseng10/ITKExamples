@@ -37,7 +37,7 @@ Results
 
   correlation.mha
 
-.. figure:: correlation.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: correlation.png
 

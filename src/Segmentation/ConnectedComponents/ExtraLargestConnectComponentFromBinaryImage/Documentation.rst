@@ -19,11 +19,11 @@ Results
 
   Input image.
 
-.. figure:: ExtraLargestConnectComponentFromBinaryImage.png
+.. figure:: OutputBaseline.png
   :scale: 70%
-  :alt: VTK Window
+  :alt: output image
 
-  Output In VTK Window
+  Output image.
 
 Output::
 

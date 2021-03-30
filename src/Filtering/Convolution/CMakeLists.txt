@@ -1,16 +1,19 @@
 add_example(NormalizedCorrelationOfMaskedImage)
 compare_to_baseline(EXAMPLE_NAME NormalizedCorrelationOfMaskedImage
-  BASELINE_PREFIX correlation
+  BASELINE_PREFIX OutputBaseline
+  TEST_IMAGE correlation.png
   )
 
 add_example(NormalizedCorrelationUsingFFT)
 compare_to_baseline(EXAMPLE_NAME NormalizedCorrelationUsingFFT
-  BASELINE_PREFIX correlation
+  BASELINE_PREFIX OutputBaseline
+  TEST_IMAGE correlation.png
   )
 
 add_example(NormalizedCorrelationUsingFFTWithMaskImages)
 compare_to_baseline(EXAMPLE_NAME NormalizedCorrelationUsingFFTWithMaskImages
-  BASELINE_PREFIX correlation
+  BASELINE_PREFIX OutputBaseline
+  TEST_IMAGE correlation.png
   )
 
 add_example(ConvolveImageWithKernel)

@@ -17,6 +17,7 @@
  *=========================================================================*/
 #include "itkImage.h"
 #include "itkImageFileReader.h"
+#include "itkImageFileWriter.h"
 #include "itkConnectedComponentImageFilter.h"
 #include "itkLabelShapeKeepNObjectsImageFilter.h"
 #include "itkRescaleIntensityImageFilter.h"
@@ -79,6 +80,8 @@ main(int argc, char * argv[])
 
   viewer.Visualize();
 #endif
+
+  itk::WriteImage(rescaleFilter->GetOutput(), "Output.png");
 
   return EXIT_SUCCESS;
 }

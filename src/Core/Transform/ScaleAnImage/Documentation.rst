@@ -18,7 +18,7 @@ Results
 
   Input Image
 
-.. figure:: ScaleAnImageOutput.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: Generated Output Image
 

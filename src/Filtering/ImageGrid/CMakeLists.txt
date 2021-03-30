@@ -41,7 +41,7 @@ compare_to_baseline(
 add_example( UpsampleAnImage )
 compare_to_baseline(
   EXAMPLE_NAME UpsampleAnImage
-  BASELINE_PREFIX BrainProtonDensitySlice
+  BASELINE_PREFIX OutputBaseline
 )
 
 add_example( ResampleAScalarImage )

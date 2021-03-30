@@ -61,7 +61,7 @@ main(int, char *[])
   resampleFilter->Update();
 
   WriterType::Pointer outputWriter = WriterType::New();
-  outputWriter->SetFileName("output.png");
+  outputWriter->SetFileName("Output.png");
   outputWriter->SetInput(resampleFilter->GetOutput());
   outputWriter->Update();
 

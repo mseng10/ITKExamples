@@ -12,7 +12,7 @@ Convert a spatial object to an image.
 
 Results
 -------
-.. figure:: ConvertSpatialObjectToImage.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

@@ -42,7 +42,7 @@ main(int, char *[])
   writer->SetInput(image);
   writer->Update();
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(filter->GetOutput());
   writer->Update();
 

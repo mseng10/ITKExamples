@@ -48,7 +48,7 @@ main(int, char *[])
   filter->SetInput(image);
   filter->Update();
 
-  CastRescaleAndWrite(filter->GetOutput(), "output.png");
+  CastRescaleAndWrite(filter->GetOutput(), "Output.png");
 
   return EXIT_SUCCESS;
 }

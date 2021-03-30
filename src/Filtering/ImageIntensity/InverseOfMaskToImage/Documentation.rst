@@ -13,7 +13,7 @@ Apply the inverse of a mask to an image.
 
 Results
 -------
-.. figure:: InverseOfMaskToImage.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

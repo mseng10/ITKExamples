@@ -24,4 +24,4 @@ enable_testing()
 add_test(NAME ComputerMagInVectorImageToMakeMagImageTest
   COMMAND ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/ComputerMagInVectorImageToMakeMagImage
     Yinyang.png
-    output.png)
+    Output.png)

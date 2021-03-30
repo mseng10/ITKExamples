@@ -14,7 +14,7 @@ Convert a C-style array to an itkImage.
 
 Results
 -------
-.. figure:: ConvertArrayToImageOutput.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: test.png
 

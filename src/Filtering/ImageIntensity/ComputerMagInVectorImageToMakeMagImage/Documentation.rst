@@ -20,7 +20,7 @@ Results
 
   Yinyang.png
 
-.. figure:: ComputerMagInVectorImageToMakeMagImage.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

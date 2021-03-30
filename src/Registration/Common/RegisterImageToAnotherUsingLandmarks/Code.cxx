@@ -108,7 +108,7 @@ main(int itkNotUsed(argc), char * itkNotUsed(argv)[])
   using WriterType = itk::ImageFileWriter<ImageType>;
   WriterType::Pointer writer = WriterType::New();
   writer->SetInput(resampleFilter->GetOutput());
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->Update();
 
   return EXIT_SUCCESS;

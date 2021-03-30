@@ -52,7 +52,7 @@ main(int, char *[])
   orFilter->SetInput(1, image2);
   orFilter->Update();
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
   writer->SetInput(orFilter->GetOutput());
   writer->Update();
 

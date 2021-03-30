@@ -13,7 +13,7 @@ Label connected components in a grayscale image.
 
 Results
 -------
-.. figure:: LabelConnectComponentsInGrayscaleImage.png
+.. figure:: LabelConnectComponentsInGrayscaleImageQuickView.png
   :scale: 70%
   :alt: VTK Window
 

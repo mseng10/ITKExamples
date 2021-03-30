@@ -12,7 +12,7 @@ Display an image.
 
 Results
 -------
-.. figure:: DisplayImage.png
+.. figure:: DisplayImageQuickView.png
   :scale: 70%
 
   Displayed Image.

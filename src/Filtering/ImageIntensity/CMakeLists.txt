@@ -27,34 +27,34 @@ compare_to_baseline( EXAMPLE_NAME MultiplyTwoImages BASELINE_PREFIX OutputBaseli
 
 add_example(PixelDivisionOfTwoImages)
 compare_to_baseline(EXAMPLE_NAME PixelDivisionOfTwoImages
-  BASELINE_PREFIX PixelDivisionOfTwoImages
-  )
+        BASELINE_PREFIX PixelDivisionOfTwoImages
+        )
 
 add_example(ScalePixelSumToConstant)
 
 add_example(AddConstantToEveryPixel)
 compare_to_baseline(EXAMPLE_NAME AddConstantToEveryPixel
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(SubtractConstantFromEveryPixel)
 compare_to_baseline(EXAMPLE_NAME SubtractConstantFromEveryPixel
-  BASELINE_PREFIX SubtractConstantFromEveryPixel
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(SquareEveryPixel)
 compare_to_baseline(EXAMPLE_NAME SquareEveryPixel
-  BASELINE_PREFIX SquareEveryPixel
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(TransformVectorValuedImagePixels)
 compare_to_baseline(EXAMPLE_NAME TransformVectorValuedImagePixels
-  BASELINE_PREFIX TransformVectorValuedImagePixels
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(IntensityWindowing)
 compare_to_baseline(EXAMPLE_NAME IntensityWindowing
-  BASELINE_PREFIX IntensityWindowing
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(CompareTwoImagesAndSetOutputPixelToMax)
@@ -62,29 +62,29 @@ add_example(CompareTwoImagesAndSetOutputPixelToMin)
 
 add_example(BinaryANDTwoImages)
 compare_to_baseline(EXAMPLE_NAME BinaryANDTwoImages
-  BASELINE_PREFIX BinaryANDTwoImages
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(BinaryORTwoImages)
 compare_to_baseline(EXAMPLE_NAME BinaryORTwoImages
-  BASELINE_PREFIX BinaryORTwoImages
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(BinaryXORTwoImages)
 compare_to_baseline(EXAMPLE_NAME BinaryXORTwoImages
-  BASELINE_PREFIX BinaryXORTwoImages
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(InverseOfMaskToImage)
 compare_to_baseline(EXAMPLE_NAME InverseOfMaskToImage
-  BASELINE_PREFIX InverseOfMaskToImage
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(CastImageToAnotherTypeButClampToOutput)
 
 add_example(ComputerMagInVectorImageToMakeMagImage)
 compare_to_baseline(EXAMPLE_NAME ComputerMagInVectorImageToMakeMagImage
-  BASELINE_PREFIX ComputerMagInVectorImageToMakeMagImage
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(ExtractComponentOfVectorImage)

@@ -28,17 +28,18 @@ add_example(RemoveLabelsFromLabelMap)
 
 add_example(KeepRegionsThatMeetSpecific)
 compare_to_baseline(EXAMPLE_NAME KeepRegionsThatMeetSpecific
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(KeepRegionsAboveLevel)
 compare_to_baseline(EXAMPLE_NAME KeepRegionsAboveLevel
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(KeepBinaryRegionsThatMeetSpecific)
 compare_to_baseline(EXAMPLE_NAME KeepBinaryRegionsThatMeetSpecific
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
+  TEST_IMAGE output.mhd
   )
 
 add_example(LabelBinaryRegionsInImage)
@@ -62,7 +63,7 @@ add_example(ShapeAttributesForBinaryImage)
 
 add_example(InvertImageUsingBinaryNot)
 compare_to_baseline(EXAMPLE_NAME InvertImageUsingBinaryNot
-  BASELINE_PREFIX output
+  BASELINE_PREFIX OutputBaseline
   )
 
 add_example(ConvertImageToLabelMap)

@@ -231,7 +231,7 @@ main(int itkNotUsed(argc), char * itkNotUsed(argv)[])
   CastFilterType::Pointer   caster = CastFilterType::New();
 
 
-  writer->SetFileName("output.png");
+  writer->SetFileName("Output.png");
 
   caster->SetInput(resample->GetOutput());
   writer->SetInput(caster->GetOutput());

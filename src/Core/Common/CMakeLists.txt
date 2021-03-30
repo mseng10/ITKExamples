@@ -83,7 +83,8 @@ compare_to_baseline(EXAMPLE_NAME MakePartOfImageTransparent
 
 add_example(ConvertArrayToImage)
 compare_to_baseline(EXAMPLE_NAME ConvertArrayToImage
-  BASELINE_PREFIX ConvertArrayToImageOutput
+  BASELINE_PREFIX OutputBaseline
+  TEST_IMAGE test.png
   )
 
 add_example(CropImageBySpecifyingRegion)
@@ -154,7 +155,14 @@ add_example(MultipleInputsOfSameType)
 
 add_example(MultipleOutputsOfSameType)
 compare_to_baseline(EXAMPLE_NAME MultipleOutputsOfSameType
-  BASELINE_PREFIX TestOutput1 TestOutput2
+  TEST_NAME MultipleOutputsOfSameTypeOutputBaseline1
+  BASELINE_PREFIX OutputBaseline1
+  TEST_IMAGE TestOutput1.jpg
+  )
+compare_to_baseline(EXAMPLE_NAME MultipleOutputsOfSameType
+  TEST_NAME MultipleOutputsOfSameTypeOutputBaseline2
+  BASELINE_PREFIX OutputBaseline2
+  TEST_IMAGE TestOutput2.jpg
   )
 
 add_example(MiniPipeline)
@@ -167,9 +175,6 @@ add_example(StoreNonPixelDataInImage)
 add_example(CheckIfModuleIsPresent)
 
 add_example(DisplayImage)
-compare_to_baseline(EXAMPLE_NAME DisplayImage
-  BASELINE_PREFIX DisplayImage
-  )
 
 add_example(DirectWarningToFile)
 

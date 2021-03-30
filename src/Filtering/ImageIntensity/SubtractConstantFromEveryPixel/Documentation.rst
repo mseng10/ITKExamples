@@ -12,7 +12,7 @@ Subtract a constant from every pixel in an image.
 
 Results
 -------
-.. figure:: SubtractConstantFromEveryPixel.png
+.. figure:: OutputBaseline.png
   :scale: 70%
   :alt: output.png
 

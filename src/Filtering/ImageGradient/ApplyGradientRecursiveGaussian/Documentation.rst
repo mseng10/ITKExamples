@@ -27,19 +27,19 @@ Results
 
   Input image
 
-.. figure:: ApplyGradientRecursiveGaussianTestOutputBaselineX.png
+.. figure:: OutputBaselineX.png
   :scale: 50%
   :alt: Gradient along X direction
 
   Gradient along X direction
 
-.. figure:: ApplyGradientRecursiveGaussianTestOutputBaselineY.png
+.. figure:: OutputBaselineY.png
   :scale: 50%
   :alt: Gradient along Y direction
 
   Gradient along Y direction
 
-.. figure:: ApplyGradientRecursiveGaussianTestOutputBaselineMagnitude.png
+.. figure:: OutputBaselineMagnitude.png
   :scale: 50%
   :alt: Output magnitude
 
